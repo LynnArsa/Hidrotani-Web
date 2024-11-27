@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import NavbarUser from "../components/NavbarUser";
 
 const About = () => {
   const images = [
@@ -6,7 +9,8 @@ const About = () => {
     "src/assets/galeri-tani2.png",
     "src/assets/galeri-tani3.png",
     "src/assets/bertani1.jpg",
-    "src/assets/bertani2.jpg",
+    "src/assets/bertani1.jpg",
+    "src/assets/bertani1.jpg",
   ];
 
   const [startIndex, setStartIndex] = useState(0);
@@ -37,7 +41,8 @@ const About = () => {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-primary to-secondary p-4 md:p-16 text-white">
+      
+      <section className=" bg-[#075852] p-4 md:p-16 text-white">
         <div className="flex flex-col md:flex-row flex-wrap items-center">
           <div className="container w-full md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center md:text-center">
@@ -261,7 +266,9 @@ const About = () => {
             </li>
           </ol>
         </div>
+        
       </section>
+      <Footer/>
     </div>
   );
 };

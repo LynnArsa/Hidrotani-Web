@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import NavbarUser from "../components/NavbarUser";
 
 const Mobile = () => {
   const [visibleParagraph, setVisibleParagraph] = useState(null);
@@ -23,7 +26,8 @@ const Mobile = () => {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-primary to-secondary  p-4 md:p-16 text-white ">
+      
+      <section className="bg-[#075852]  p-4 md:p-16 text-white ">
         <div className="flex flex-col md:flex-row items-start justify-between">
           {" "}
           <div className="w-full md:w-1/2 p-4">
@@ -64,7 +68,7 @@ const Mobile = () => {
               className="w-full max-w-xs md:max-w-md rounded-xl"
             />
             <button
-              className="bg-green-900 hover:bg-green-700 hover:text-yellow-300 text-white py-3 px-8 text-lg md:text-xl font-semibold rounded-lg mt-4 md:mt-6 shadow-md hover:shadow-lg hover:shadow-green-500/50 transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-[#075852] hover:bg-[#26BE71] hover:text-yellow-300 text-white py-3 px-8 text-lg md:text-xl font-semibold rounded-lg mt-4 md:mt-6 shadow-md hover:shadow-lg hover:shadow-green-500/50 transition duration-300 ease-in-out transform hover:scale-105"
               onClick={handleBuyNowClick}
             >
               Unduh Sekarang
@@ -201,7 +205,7 @@ const Mobile = () => {
             {/* Tombol untuk Menampilkan / Menyembunyikan Paragraf */}
             <button
               onClick={() => toggleParagraphVisibility(0)}
-              className="mt-4 ml-4 p-2 bg-green-900 text-white rounded-md flex items-center justify-center"
+              className="mt-4 ml-4 p-2 bg-[#075852] text-white rounded-md flex items-center justify-center"
             >
               <i
                 className={`bx ${
@@ -236,7 +240,7 @@ const Mobile = () => {
             {/* Tombol untuk Menampilkan / Menyembunyikan Paragraf */}
             <button
               onClick={() => toggleParagraphVisibility(1)}
-              className="mt-4 ml-4 p-2 bg-green-900 text-white rounded-md flex items-center justify-center"
+              className="mt-4 ml-4 p-2 bg-[#075852] text-white rounded-md flex items-center justify-center"
             >
               <i
                 className={`bx ${
@@ -288,7 +292,7 @@ const Mobile = () => {
 
             <button
               onClick={() => toggleParagraphVisibility(2)}
-              className="mt-4 ml-4 p-2 bg-green-900 text-white rounded-md flex items-center justify-center"
+              className="mt-4 ml-4 p-2 bg-[#075852] text-white rounded-md flex items-center justify-center"
             >
               <i
                 className={`bx ${
@@ -315,6 +319,7 @@ const Mobile = () => {
           {/* ... */}
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
