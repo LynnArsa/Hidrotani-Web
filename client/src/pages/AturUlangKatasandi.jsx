@@ -28,7 +28,7 @@ const AturUlangKatasandi = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-primary to-secondary min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-24">
+    <section className="bg-[#D5F0DB] min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-24">
       <div className="w-full max-w-lg bg-white text-gray-800 rounded-lg shadow-lg p-8 space-y-6">
         {/* Logo dan Judul */}
         <div className="flex flex-col items-center space-y-4">
@@ -97,7 +97,7 @@ const AturUlangKatasandi = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full bg-primary text-white px-8 py-2 rounded-lg shadow hover:bg-secondary transition duration-300 ${
+            className={`w-full bg-[#075852] text-white px-8 py-2 rounded-lg shadow hover:bg-[#26BE71] transition duration-300 ${
               loading ? "opacity-50" : ""
             }`}
           >

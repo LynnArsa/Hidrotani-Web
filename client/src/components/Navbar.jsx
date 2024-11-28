@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
-
 const Navbar = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
@@ -24,10 +23,28 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  //   setUserImage("src/assets/logo-user.png"); // Path ke gambar avatar pengguna
+  // };
   const handleLogin = () => {
+    const username = "Nama Pengguna"; // Ambil nama pengguna dari response API atau form
     setIsLoggedIn(true);
-    setUserImage("src/assets/logo-user.png"); // Path ke gambar avatar pengguna
+    setUserImage("src/assets/logo-user.png"); // Ganti dengan gambar pengguna
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userName", username); // Simpan nama pengguna
+    localStorage.setItem("userImage", "src/assets/logo-user.png");
+    navigate("/user"); // Arahkan ke halaman dashboard pengguna setelah login
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userImage");
+    setIsLoggedIn(false);
+    setUserImage("");
+    navigate("/login"); // Arahkan kembali ke halaman login
+  };
+  
 
   return (
     <nav className="bg-main sticky top-0 z-50">
@@ -150,12 +167,33 @@ const Navbar = () => {
 
           {/* Tombol Login dan Avatar Pengguna */}
           <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <Link
+            {/* <Link
               to="/login"
               className="rounded-xl bg-[#075852] px-8 py-2 text-sm font-medium text-white hover:bg-[#075852]"
             >
               Masuk
-            </Link>
+            </Link> */}
+
+            {isLoggedIn ? (
+              <Link
+                to="/user" // Arahkan ke dashboard pengguna
+                className="flex items-center space-x-2 text-white"
+              >
+                <img
+                  src={userImage}
+                  alt="User Avatar"
+                  className="h-8 w-8 rounded-full"
+                />
+                <span>Dashboard</span>
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="rounded-xl bg-[#075852] px-8 py-2 text-sm font-medium text-white hover:bg-[#075852]"
+              >
+                Masuk
+              </Link>
+            )}
           </div>
         </div>
       </div>

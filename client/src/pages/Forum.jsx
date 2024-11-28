@@ -122,6 +122,8 @@ const Forum = () => {
   };
 
   const addPost = () => {
+    
+
     const newPost = {
       id: posts.length + 1,
       username: "Pengguna Baru",
