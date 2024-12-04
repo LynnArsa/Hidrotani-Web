@@ -1,18 +1,16 @@
-const { admin } = require("../config/Firebase");
-const verifyToken = async (req, res, next) => {
-    const idToken = req.cookies.access_token;
-    if (!idToken) {
-        return res.status(403).json({ error: 'No token provided' });
-    }
+const jwt = require('jsonwebtoken');
+require('dotenv').config(); // Ensure the .env file is loaded
 
-    try {
-      const decodedToken = await admin.auth().verifyIdToken(idToken); 
-        req.user = decodedToken;
-        next();
-    } catch (error) {
-        console.error('Error verifying token:', error);
-        return res.status(403).json({ error: 'Unauthorized' });
-    }
+const authenticateToken = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Extract token from the header
+
+  if (!token) return res.status(401).json({ message: 'Access denied. No token provided.' });
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: 'Invalid or expired token' });
+    req.user = user;
+    next();
+  });
 };
 
-module.exports = verifyToken;
+module.exports = authenticateToken;

@@ -1,89 +1,91 @@
-const { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut, 
-  sendEmailVerification,
-  sendPasswordResetEmail
- } = require('../config/Firebase');
+const { promisePool } = require('../db');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
- const auth = getAuth();
+class AuthController {
+  // Register a new user
+  async registerUser(req, res) {
+    const { email, password, name, phone } = req.body;
 
- class authController {
-  registerUser(req, res) {
+    if (!email || !password || !name) {
+      return res.status(422).json({ error: "Email, password, and name are required" });
+    }
+
+    const connection = await promisePool.getConnection();
+    try {
+      await connection.beginTransaction();
+
+      // Check if email already exists
+      const [existingUser] = await connection.query('SELECT * FROM User WHERE email = ?', [email]);
+      if (existingUser.length > 0) {
+        return res.status(409).json({ error: "Email is already in use" });
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      await connection.query(
+        'INSERT INTO User (email, password, name, phone) VALUES (?, ?, ?, ?)',
+        [email, hashedPassword, name, phone]
+      );
+
+      await connection.commit();
+
+      res.status(201).json({
+        message: "User created successfully!",
+        email,
+      });
+    } catch (error) {
+      console.error("Error during registration:", error);
+      await connection.rollback();
+      res.status(500).json({
+        error: error.message || "An error occurred while registering the user.",
+      });
+    } finally {
+      connection.release();
+    }
+  }
+
+  // Log in an existing user
+  async login(req, res) {
     const { email, password } = req.body;
+
     if (!email || !password) {
-      return res.status(422).json({
-        email: "Email is required",
-        password: "Password is required",
-      });
+      return res.status(422).json({ error: "Email and password are required" });
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-            res.status(201).json({ message: "Verification email sent! User created successfully!" });
-          })
-          .catch((error) => {
-            console.error(error);
-            res.status(500).json({ error: "Error sending email verification" });
-          });
-      })
-      .catch((error) => {
-        const errorMessage = error.message || "An error occurred while registering user";
-        res.status(500).json({ error: errorMessage });
-      });
-  }
+    try {
+      const [users] = await promisePool.query('SELECT * FROM User WHERE email = ?', [email]);
+      if (users.length === 0) {
+        return res.status(404).json({ error: "User not found" });
+      }
 
-  loginUser(req, res) {
-      const { email, password } = req.body;
-      if (!email || !password) {
-        return res.status(422).json({
-          email: "Email is required",
-          password: "Password is required",
-        });
+      const user = users[0];
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+        return res.status(401).json({ error: "Invalid credentials" });
       }
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          res.status(200).json({ message: "User logged in successfully", user: userCredential.user });
-        })
-        .catch((error) => {
-          const errorMessage = error.message || "An error occurred while logging in";
-          res.status(500).json({ error: errorMessage });
-        });
+
+      // Generate JWT token
+      const token = jwt.sign({ userId: user.id_user }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
+
+      console.log("Generated JWT Token:", token); // Log the token
+
+      res.status(200).json({
+        message: "Login successful",
+        token,
+        user: {
+          id_user: user.id_user,
+          email: user.email,
+          name: user.name,
+          phone: user.phone,
+        },
+      });
+    } catch (error) {
+      res.status(500).json({
+        error: error.message || "An error occurred while logging in.",
+      });
     }
-   
-  logoutUser(req, res) {
-      signOut(auth)
-        .then(() => {
-          res.clearCookie('access_token');
-          res.status(200).json({ message: "User logged out successfully" });
-        })
-        .catch((error) => {
-          console.error(error);
-          res.status(500).json({ error: "Internal Server Error" });
-        });
   }
-    
-  resetPassword(req, res){
-      const { email } = req.body;
-      if (!email ) {
-        return res.status(422).json({
-          email: "Email is required"
-        });
-      }
-      sendPasswordResetEmail(auth, email)
-        .then(() => {
-          res.status(200).json({ message: "Password reset email sent successfully!" });
-        })
-        .catch((error) => {
-          console.error(error);
-          res.status(500).json({ error: "Internal Server Error" });
-        });
-    }
 }
 
-
-
-module.exports = new authController();
+module.exports = new AuthController();
