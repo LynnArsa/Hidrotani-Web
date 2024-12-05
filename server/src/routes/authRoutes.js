@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const AuthController = require('../controllers/authController'); // Ensure this import is correct
-const authenticateToken = require('../middleware/authMiddleware'); // Ensure this import is correct
+const AuthController = require('../controllers/authController');
+const authenticateToken = require('../middleware/authMiddleware');
 
-// Register a new user
-router.post('/register', AuthController.registerUser); // Ensure registerUser is a valid function
+router.post('/register', AuthController.registerUser);
+router.post('/login', AuthController.login);
 
-// Log in an existing user
-router.post('/login', AuthController.login); // Ensure login is a valid function
-
-// Example of a protected route
+// PROTECTED
 router.get('/profile', authenticateToken, (req, res) => {
   res.json({ message: "Protected profile route", user: req.user });
 });
+
+router.put('/profile', authenticateToken, AuthController.updateUserProfile);
+
 
 module.exports = router;

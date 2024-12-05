@@ -1,31 +1,26 @@
 require('dotenv').config();
 
-// Log the environment variable loading process
-console.log('Loaded environment variables:');
-console.log('JWT_SECRET:', process.env.JWT_SECRET_KEY);  // Make sure it's loaded correctly
+// console.log('JWT_SECRET:', process.env.JWT_SECRET_KEY);
 
 const express = require('express');
 const cors = require('cors');
 
 // Import routes
-const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const articleRoutes = require('./routes/Articles/articleRoutes');
 const postRoutes = require('./routes/Forum/postRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 
-// Middleware
-const authenticateToken = require('./middleware/authMiddleware');
 
 const app = express();
 
 // Middleware
+const authenticateToken = require('./middleware/authMiddleware');
 app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/users', authenticateToken, userRoutes);
 app.use('/api/articles', articleRoutes);
 app.use('/api/forum/posts', postRoutes);
 app.use('/api/categories', categoryRoutes);

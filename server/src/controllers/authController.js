@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 class AuthController {
-  // Register a new user
+  // REGISTER
   async registerUser(req, res) {
     const { email, password, name, phone } = req.body;
 
@@ -45,7 +45,7 @@ class AuthController {
     }
   }
 
-  // Log in an existing user
+  // LOGIN
   async login(req, res) {
     const { email, password } = req.body;
 
@@ -65,10 +65,9 @@ class AuthController {
         return res.status(401).json({ error: "Invalid credentials" });
       }
 
-      // Generate JWT token
-      const token = jwt.sign({ userId: user.id_user }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
+      const token = jwt.sign({ userId: user.id_user, isAdmin: user.is_admin }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
 
-      console.log("Generated JWT Token:", token); // Log the token
+      console.log("Generated JWT Token:", token);
 
       res.status(200).json({
         message: "Login successful",
@@ -86,6 +85,71 @@ class AuthController {
       });
     }
   }
+  
+
+// UPDATE PROTECTED
+async updateUserProfile(req, res) {
+  const { name, phone, password, oldPassword } = req.body;
+  const userId = req.user.userId;
+
+  if (!name && !phone && !password) {
+    return res.status(400).json({ error: 'Please provide fields to update' });
+  }
+
+  const updateFields = [];
+  const updateValues = [];
+
+  if (name) {
+    updateFields.push('name');
+    updateValues.push(name);
+  }
+  if (phone) {
+    updateFields.push('phone');
+    updateValues.push(phone);
+  }
+
+  if (password) {
+    if (!oldPassword) {
+      return res.status(400).json({ error: 'Old password is required to update password' });
+    }
+
+    try {
+      const [userRows] = await promisePool.query('SELECT * FROM User WHERE id_user = ?', [userId]);
+      const user = userRows[0];
+
+      const isOldPasswordValid = await bcrypt.compare(oldPassword, user.password);
+      if (!isOldPasswordValid) {
+        return res.status(401).json({ error: 'Old password is incorrect' });
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      updateFields.push('password');
+      updateValues.push(hashedPassword);
+    } catch (error) {
+      return res.status(500).json({ error: 'Error checking old password' });
+    }
+  }
+
+  updateValues.push(userId);
+
+  const sql = `UPDATE User SET ${updateFields.map(field => `${field} = ?`).join(', ')} WHERE id_user = ?`;
+
+  try {
+    const [result] = await promisePool.query(sql, updateValues);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'User profile updated successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to update user profile' });
+  }
 }
+
+}
+
 
 module.exports = new AuthController();

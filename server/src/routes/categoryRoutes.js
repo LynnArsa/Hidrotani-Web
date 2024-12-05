@@ -1,25 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const CategoryController = require('../controllers/categoryController');
 
-const { promisePool } = require('../db');
+router.get('/', (req, res) => CategoryController.getAllCategories(req, res));
 
-const getAllCategories = async () => {
-  try {
-    const [categories] = await promisePool.query('SELECT * FROM Category');
-    return categories;
-  } catch (error) {
-    throw new Error(`Database query failed: ${error.message}`);
-  }
-};
+router.get('/:id', (req, res) => CategoryController.getCategoryById(req, res));
 
-router.get('/', async (req, res) => {
-  try {
-    const categories = await getAllCategories();
-    res.json(categories);
-  } catch (error) {
-    console.error("Error fetching categories:", error.message);
-    res.status(500).json({ error: "Failed to retrieve categories" });
-  }
-});
+router.post('/', (req, res) => CategoryController.createCategory(req, res));
 
 module.exports = router;
