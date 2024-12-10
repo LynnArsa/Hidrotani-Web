@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
+import NavbarUser from "./components/NavbarUser";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
-// import AdminSidebar from "./components/AdminSidebar";
-// import AdminArtikel from "./components/AdminArtikel";
-// import AdminProduk from "./components/AdminProduk";
-// import AdminUser from "./components/AdminUser";
-// import AdminLogin from "./pages/AdminLogin";
 
 import Home from "./pages/Home";
 import Edukasi from "./pages/Edukasi";
@@ -20,32 +16,16 @@ import Panduan from "./pages/Edukasi/Panduan";
 import Content from "./pages/Edukasi/Panduan/Content";
 import Login from "./pages/Login";
 import "./index.css";
-import User from "./pages/User";
+import User from "./pages/Profile";
 import RegisterForm from "./pages/Register";
-import NavbarUser from "./components/NavbarUser";
 import LupaKatasandi from "./pages/LupaKatasandi";
 import AturUlangKatasandi from "./pages/AturUlangKatasandi";
 import BuatPostinganBaru from "./pages/BuatPostinganBaru";
 
 const App = () => {
   const [isRegistered, setIsRegistered] = useState(false); // Status pendaftaran
-
   const [registeredUser, setRegisteredUser] = useState(null); // Data pengguna yang terdaftar
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeTab, setActiveTab] = useState("users");
-  // const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-
-  // const handleAdminLogin = () => {
-
-  //   setIsAdminLoggedIn(true);
-
-  // };
-
-  // const handleAdminLogout = () => {
-
-  //   setIsAdminLoggedIn(false);
-
-  // };
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Status login
 
   const handleLogin = () => {
     setIsLoggedIn(true); // Mengatur status login menjadi true setelah login
@@ -58,7 +38,8 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
+        {/* Ganti Navbar berdasarkan status login */}
+        {isLoggedIn ? <NavbarUser onLogout={handleLogout} /> : <Navbar />}
 
         <Routes>
           <Route
@@ -91,6 +72,7 @@ const App = () => {
                 isRegistered={isRegistered}
                 registeredUser={registeredUser}
                 setIsLoggedIn={setIsLoggedIn}
+                onLogin={handleLogin} // Tambahkan callback login
               />
             }
           />
@@ -103,13 +85,12 @@ const App = () => {
               />
             }
           />
-          <Route path="/navbaruser" element={<NavbarUser />} />
           <Route path="/lupakatasandi" element={<LupaKatasandi />} />
           <Route path="/aturulangkatasandi" element={<AturUlangKatasandi />} />
           <Route path="/buatpostinganbaru" element={<BuatPostinganBaru />} />
-
           <Route path="/home" element={<Home />} />
         </Routes>
+        
       </Router>
     </AuthProvider>
   );
