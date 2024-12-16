@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import NavbarUser from "../components/NavbarUser";
+import axios from "axios";
 
 const Forum = () => {
   const [newComment, setNewComment] = useState("");
@@ -9,7 +8,7 @@ const Forum = () => {
   const [newPostCategory, setNewPostCategory] = useState(""); // State untuk kategori
   const [selectedImage, setSelectedImage] = useState("");
   const [currentUser, setCurrentUser] = useState({
-    username: "Pengguna Baru", // Ganti dengan nama pengguna yang sesuai
+    username: "Rayhan", // Ganti dengan nama pengguna yang sesuai
     avatar: "src/assets/pria.png", // Ganti dengan URL gambar avatar pengguna
   });
 
@@ -122,11 +121,10 @@ const Forum = () => {
   };
 
   const addPost = () => {
-    
 
     const newPost = {
       id: posts.length + 1,
-      username: "Pengguna Baru",
+      username: "Rayhan",
       time: "Sekarang",
       title: newPostTitle, // Menyimpan judul
       category: newPostCategory, // Menyimpan kategori
@@ -152,9 +150,202 @@ const Forum = () => {
       post.content.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+// import React, { useState, useEffect } from "react";
+
+// import Footer from "../components/Footer";
+
+// import axios from "axios";
+
+// import { useNavigate } from "react-router-dom";
+
+// const Forum = () => {
+//   const navigate = useNavigate();
+
+//   const [currentUser, setCurrentUser] = useState(null);
+
+//   const [newComment, setNewComment] = useState("");
+
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+
+//   const [newPostCategory, setNewPostCategory] = useState("");
+
+//   const [selectedImage, setSelectedImage] = useState("");
+
+//   const [posts, setPosts] = useState([
+//     {
+//       id: 1,
+
+//       username: "Pengguna 1",
+
+//       time: "2 jam yang lalu",
+
+//       category: "Sayuran",
+
+//       title: "Pengalaman Menanam Tanaman Hidroponik",
+
+//       content:
+//         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
+
+//       image: "src/assets/tanaman-layu.jpg",
+
+//       comments: [""],
+
+//       showComments: false,
+//     },
+
+//     // ... postingan lainnya
+//   ]);
+
+//   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
+
+//   const [newPostTitle, setNewPostTitle] = useState("");
+
+//   const [newPostContent, setNewPostContent] = useState("");
+
+//   const [newPostImage, setNewPostImage] = useState("");
+
+//   const [searchQuery, setSearchQuery] = useState("");
+
+//   const [lastPostId, setLastPostId] = useState(null);
+
+//   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+//   const [editPost, setEditPost] = useState({
+//     title: "",
+
+//     content: "",
+
+//     image: "",
+//   });
+
+//   // Fungsi untuk mengecek dan mendapatkan data pengguna
+
+//   useEffect(() => {
+//     const checkUserLogin = async () => {
+//       const token = localStorage.getItem("token");
+
+//       if (!token) {
+//         // Jika tidak ada token, arahkan ke halaman login
+
+//         navigate("/login");
+
+//         return;
+//       }
+
+//       try {
+//         // Kirim request untuk mendapatkan data pengguna
+
+//         const response = await axios.get("http://localhost:5000/api/user", {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         });
+
+//         setCurrentUser(response.data);
+//       } catch (error) {
+//         console.error("Gagal mengambil data pengguna", error);
+
+//         localStorage.removeItem("token");
+
+//         navigate("/login");
+//       }
+//     };
+
+//     checkUserLogin();
+//   }, [navigate]);
+
+//   const addPost = () => {
+//     // Pastikan pengguna sudah login
+
+//     if (!currentUser) {
+//       alert("Silakan login terlebih dahulu");
+
+//       return;
+//     }
+
+//     const newPost = {
+//       id: posts.length + 1,
+
+//       username: currentUser.username, // Gunakan username dari data pengguna yang login
+
+//       time: "Sekarang",
+
+//       title: newPostTitle,
+
+//       category: newPostCategory,
+
+//       content: newPostContent,
+
+//       image: newPostImage,
+
+//       comments: [],
+
+//       showComments: false,
+//     };
+
+//     // Kirim post ke backend
+
+//     const sendPostToBackend = async () => {
+//       try {
+//         const response = await axios.post("http://localhost:5000/api/posts", {
+//           ...newPost,
+
+//           userId: currentUser.id, // Sertakan ID pengguna
+//         });
+
+//         // Update state posts dengan response dari backend
+
+//         setPosts([response.data, ...posts]);
+//       } catch (error) {
+//         console.error("Gagal mengirim post", error);
+//       }
+//     };
+
+//     sendPostToBackend();
+
+//     // Reset state
+
+//     setLastPostId(newPost.id);
+
+//     setNewPostTitle("");
+
+//     setNewPostCategory("");
+
+//     setNewPostContent("");
+
+//     setNewPostImage("");
+
+//     setIsCreatePostOpen(false);
+//   };
+
+//   // Render tombol buat postingan hanya jika sudah login
+
+//   const renderCreatePostButton = () => {
+//     if (currentUser) {
+//       return (
+//         <div className="fixed bottom-6 right-6 z-50">
+//           <button
+//             onClick={() => setIsCreatePostOpen(true)}
+//             className="bg-[#075852] hover:bg-[#26BE71] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl"
+//             aria-label="Buat Postingan Baru"
+//           >
+//             +
+//           </button>
+//         </div>
+//       );
+//     }
+
+//     return null;
+//   };
+
+//   // Jika belum login, tampilkan loading atau redirect
+
+//   if (!currentUser) {
+//     return <div>Loading...</div>;
+//   }
+
   return (
     <div>
-      
       <section className="bg-[#075852] p-8 md:p-16 text-white">
         <div className="flex flex-col md:flex-row flex-wrap items-center">
           <div className="w-full md:w-1/2 p-4 flex flex-col items-center md:items-start">
@@ -234,7 +425,7 @@ const Forum = () => {
                   }
                   className="w-full p-2 border border-gray-300 rounded-lg mb-4"
                 />
-                
+
                 <div className="flex justify-center space-x-4 mt-6">
                   <button
                     onClick={addPost}
@@ -366,7 +557,7 @@ const Forum = () => {
                       }
                       className="w-full p-2 border border-gray-300 rounded-lg mb-4"
                     />
-                    
+
                     <div className="flex justify-center space-x-4 mt-6">
                       <button
                         onClick={saveEditedPost}

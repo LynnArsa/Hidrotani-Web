@@ -21,6 +21,7 @@ import RegisterForm from "./pages/Register";
 import LupaKatasandi from "./pages/LupaKatasandi";
 import AturUlangKatasandi from "./pages/AturUlangKatasandi";
 import BuatPostinganBaru from "./pages/BuatPostinganBaru";
+import FAQ from "./pages/Edukasi/FAQ";
 
 const App = () => {
   const [isRegistered, setIsRegistered] = useState(false); // Status pendaftaran
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/mobileapp" element={<Mobile />} />
           <Route path="/edukasi" element={<Edukasi />} />
           <Route path="/edukasi/artikel" element={<Artikel />} />
+          <Route path="/edukasi/faq" element={<FAQ />} />
           <Route
             path="/user"
             element={<User registeredUser={registeredUser} />}

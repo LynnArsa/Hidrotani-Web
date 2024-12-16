@@ -198,7 +198,7 @@ const User = ({ registeredUser }) => {
             <div className="flex flex-col gap-2 md:gap-4">
               <button
                 onClick={() => handleTabChange("editProfile")}
-                className={`w-full text-left px-4 py-2 rounde d-lg ${
+                className={`w-full text-left px-4 py-2 rounded-lg ${
                   activeTab === "editProfile"
                     ? "bg-[#26BE71] text-white"
                     : "bg-gray-200"

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { BiSolidHide } from "react-icons/bi";
+import axios from "axios";
+import { BiShow, BiHide } from "react-icons/bi"; // Import ikon BiShow dan BiHide
 
 const Login = ({ isRegistered, registeredUser, setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -59,6 +62,38 @@ const Login = ({ isRegistered, registeredUser, setIsLoggedIn }) => {
       console.error("Login failed", error);
     }
   };
+
+  
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   setError(""); // Reset error message
+
+  //   try {
+  //     // Kirim data ke backend
+  //     const API_URL = process.env.REACT_APP_BACKEND_URL;
+  //     const response = await axios.post(`${API_URL}/api/login`, {
+  //       email,
+  //       password,
+  //     });
+
+  //     // Cek respons dari backend
+  //     if (response.data.success) {
+  //       const userData = response.data.data; // Data user dari backend
+
+  //       // Simpan status login dan arahkan ke halaman home
+  //       setIsLoggedIn(true);
+  //       login(userData); // Simpan data user di AuthContext
+  //       navigate("/home");
+  //     } else {
+  //       // Jika login gagal, tampilkan pesan kesalahan dari backend
+  //       setError(response.data.message);
+  //     }
+  //   } catch (err) {
+  //     // Tangani error koneksi atau server
+  //     setError("Terjadi kesalahan saat login. Silakan coba lagi.");
+  //     console.error(err);
+  //   }
+  // };
 
   const handleRegisterRedirect = () => {
     navigate("/register"); // Arahkan ke halaman pendaftaran
@@ -119,9 +154,9 @@ const Login = ({ isRegistered, registeredUser, setIsLoggedIn }) => {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute right-4 top-9 text-gray-500 hover:text-primary"
+              className="absolute right-4 top-11 text-gray-500 hover:text-primary"
             >
-              {showPassword ? "Sembunyikan" : "Tampilkan"}
+              {showPassword ? <BiHide size={20} /> : <BiShow size={20} />}
             </button>
           </div>
 

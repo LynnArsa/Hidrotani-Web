@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
-import NavbarUser from "../../components/NavbarUser";
+import axios from "axios";
 
 const Artikel = () => {
   const [searchInput, setSearchInput] = useState(""); // State untuk input pencarian
@@ -579,41 +578,44 @@ const Artikel = () => {
       content: (
         <>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Artificial Intelligence (AI) telah membuka jalan baru dalam
+            pertanian modern, termasuk budidaya hidroponik. Dengan memanfaatkan
+            teknologi canggih ini, petani dapat meningkatkan efisiensi,
+            mengurangi biaya, dan memastikan hasil panen yang optimal.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Cara AI Dimanfaatkan dalam Budidaya Hidroponik:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Pemantauan Kondisi Tanaman Secara Real-Time:</strong>{" "}
+              Sensor dan kamera yang didukung AI dapat menganalisis data seperti
+              kelembapan, suhu, pH air, dan nutrisi untuk memberikan rekomendasi
+              tepat.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Otomasi Sistem Nutrisi:</strong> AI memungkinkan
+              penyesuaian tingkat nutrisi secara otomatis berdasarkan kebutuhan
+              tanaman, mengurangi pemborosan.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Prediksi Hasil Panen:</strong> Analisis AI terhadap pola
+              pertumbuhan dan faktor lingkungan membantu memprediksi waktu dan
+              hasil panen dengan akurat.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Pendeteksian Hama dan Penyakit:</strong> AI
+              mengidentifikasi tanda awal serangan hama atau penyakit melalui
+              analisis gambar, memungkinkan tindakan cepat.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Efisiensi Energi:</strong> Penggunaan energi dapat
+              dioptimalkan dengan AI, terutama untuk lampu LED dan pompa.
+            </li>
+            <li>
+              <strong>Analisis Data untuk Keputusan Strategis:</strong> AI
+              memberikan wawasan strategis dari data yang dikumpulkan, membantu
+              petani membuat keputusan berbasis data.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
@@ -627,41 +629,39 @@ const Artikel = () => {
       content: (
         <>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Akuaponik adalah sistem pertanian yang menggabungkan budidaya ikan
+            dan tanaman dalam satu ekosistem yang saling mendukung. Sistem ini
+            menjadi alternatif hidroponik yang lebih ramah lingkungan karena
+            menggunakan limbah ikan sebagai sumber nutrisi bagi tanaman,
+            sekaligus memurnikan air untuk kehidupan ikan.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Keunggulan Akuaponik:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Efisiensi Penggunaan Air:</strong> Air disirkulasikan
+              kembali antara kolam ikan dan tanaman, menghemat penggunaan air.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Pemanfaatan Limbah Ikan:</strong> Limbah ikan dimanfaatkan
+              sebagai pupuk organik alami bagi tanaman.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Tanpa Pupuk Kimia:</strong> Nutrisi tanaman diperoleh dari
+              limbah ikan, tanpa perlu tambahan pupuk kimia.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Sistem Ramah Lingkungan:</strong> Akuaponik mengurangi
+              limbah dan memanfaatkan siklus alamiah antara ikan dan tanaman.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Produksi Ganda:</strong> Selain tanaman, akuaponik juga
+              menghasilkan ikan, meningkatkan manfaat ekonomi.
+            </li>
+            <li>
+              <strong>Minim Pencemaran:</strong> Sistem tertutup mengurangi
+              risiko pencemaran air dan lingkungan.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
@@ -674,41 +674,44 @@ const Artikel = () => {
       content: (
         <>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Sistem pertanian hidroponik semakin diakui sebagai solusi
+            berkelanjutan untuk mengurangi jejak karbon dalam pertanian. Dengan
+            pendekatan yang lebih efisien dan ramah lingkungan, hidroponik
+            membantu mengurangi emisi gas rumah kaca yang biasanya dihasilkan
+            dari praktik pertanian tradisional.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Cara Hidroponik Berkontribusi dalam Mengurangi Jejak Karbon:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Penggunaan Air yang Lebih Efisien:</strong> Hidroponik
+              menggunakan hingga 90% lebih sedikit air dibandingkan metode
+              pertanian konvensional, mengurangi konsumsi energi untuk
+              pengelolaan sumber daya air.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Tanpa Penggunaan Alat Berat:</strong> Hidroponik tidak
+              memerlukan pengolahan tanah, sehingga mengurangi konsumsi bahan
+              bakar fosil.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Produksi Lokal:</strong> Memungkinkan produksi di daerah
+              perkotaan, mengurangi kebutuhan transportasi jarak jauh.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Penggunaan Energi Terbarukan:</strong> Dapat
+              diintegrasikan dengan panel surya atau turbin angin untuk
+              mengurangi ketergantungan pada energi fosil.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Pengurangan Limbah Pupuk:</strong> Nutrisi digunakan
+              langsung oleh tanaman, mengurangi limbah pupuk yang menghasilkan
+              gas rumah kaca.
+            </li>
+            <li>
+              <strong>Lingkungan Terkontrol:</strong> Tanaman tumbuh di
+              lingkungan terkendali, meminimalkan kerusakan ekosistem alami.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
@@ -720,42 +723,46 @@ const Artikel = () => {
       date: "2023-10-14",
       content: (
         <>
+          <h1>Keuntungan Pertanian Vertikal untuk Keberlanjutan Lingkungan</h1>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Pertanian vertikal menjadi solusi inovatif dalam menjawab tantangan
+            kebutuhan pangan global sekaligus mendukung keberlanjutan
+            lingkungan. Dengan mengoptimalkan lahan secara vertikal, metode ini
+            menawarkan berbagai manfaat yang signifikan, baik secara lingkungan
+            maupun ekonomi.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Keuntungan Utama:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Mengurangi Penggunaan Lahan:</strong> Memanfaatkan ruang
+              vertikal sehingga tidak memerlukan lahan yang luas. Hal ini
+              membantu mencegah deforestasi dan menjaga ekosistem alami.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Menghemat Air:</strong> Teknik irigasi seperti irigasi
+              tetes dan sistem hidroponik memungkinkan penghematan air hingga
+              90% dibandingkan pertanian tradisional.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Mengurangi Jejak Karbon:</strong> Memproduksi hasil tani
+              lebih dekat ke kota, sehingga menekan emisi karbon akibat
+              transportasi jarak jauh.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Mengurangi Penggunaan Pestisida:</strong> Dalam lingkungan
+              terkendali, pertanian vertikal hampir tidak membutuhkan pestisida,
+              menghasilkan produk yang lebih sehat dan ramah lingkungan.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Meningkatkan Produksi Sepanjang Tahun:</strong> Tidak
+              tergantung pada musim, memastikan pasokan pangan yang stabil.
+            </li>
+            <li>
+              <strong>Mendukung Keberlanjutan Perkotaan:</strong> Pertanian
+              vertikal di perkotaan membuat kota-kota besar lebih mandiri dalam
+              memenuhi kebutuhan pangan warganya.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
@@ -767,42 +774,47 @@ const Artikel = () => {
       date: "2023-10-15",
       content: (
         <>
+          <h1>Pentingnya Penggunaan Air dalam Sistem Hidroponik</h1>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Sistem hidroponik merupakan metode pertanian modern yang
+            mengandalkan air sebagai media utama untuk menumbuhkan tanaman.
+            Tidak seperti metode tradisional yang menggunakan tanah, hidroponik
+            menawarkan solusi hemat air dengan hasil yang lebih maksimal.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Alasan Pentingnya Penggunaan Air:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Efisiensi Penggunaan Air:</strong> Hidroponik memungkinkan
+              penggunaan air yang jauh lebih sedikit dibandingkan pertanian
+              konvensional. Air dalam sistem ini bersirkulasi, sehingga tidak
+              banyak terbuang.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Nutrisi yang Tepat Sasaran:</strong> Dengan air sebagai
+              media utama, nutrisi dapat langsung diberikan ke akar tanaman
+              secara optimal, menghindari pemborosan.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Cocok untuk Area Minim Air:</strong> Hidroponik dapat
+              diterapkan di daerah yang kekurangan sumber daya air, seperti
+              wilayah perkotaan atau area kering.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Mengurangi Polusi Lingkungan:</strong> Sistem tertutup
+              pada hidroponik mencegah limpasan air yang membawa pupuk atau
+              pestisida ke lingkungan sekitar.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Produksi yang Konsisten:</strong> Sistem hidroponik tidak
+              bergantung pada cuaca atau musim, sehingga memastikan tanaman
+              mendapatkan air yang cukup kapan saja.
+            </li>
+            <li>
+              <strong>Mendukung Pertanian Berkelanjutan:</strong> Dengan
+              efisiensi air, hidroponik membantu menjaga keberlanjutan sumber
+              daya air untuk generasi mendatang.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
@@ -815,135 +827,91 @@ const Artikel = () => {
       content: (
         <>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Hidroponik tidak hanya dikenal sebagai metode pertanian modern yang
+            hemat air dan lahan, tetapi juga memiliki potensi untuk mengurangi
+            limbah plastik. Dengan memanfaatkan inovasi dan pendekatan yang
+            berkelanjutan, hidroponik dapat menjadi solusi efektif untuk
+            memitigasi dampak pencemaran plastik dalam sektor pertanian.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Kontribusi Hidroponik pada Pengurangan Limbah Plastik:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Mengurangi Penggunaan Plastik Sekali Pakai:</strong>{" "}
+              Hidroponik menggunakan wadah atau sistem irigasi tahan lama,
+              sehingga tidak bergantung pada plastik sekali pakai seperti mulsa
+              pada pertanian tradisional.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Memanfaatkan Plastik Daur Ulang:</strong> Sistem
+              hidroponik modern mulai dirancang menggunakan bahan plastik daur
+              ulang untuk mengurangi limbah plastik baru.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Peningkatan Umur Pakai Sistem Hidroponik:</strong>{" "}
+              Komponen seperti wadah dan pipa memiliki umur pakai yang panjang,
+              mengurangi kebutuhan penggantian dan limbah plastik.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Alternatif Material Ramah Lingkungan:</strong> Beberapa
+              sistem hidroponik menggunakan bio-plastik atau material berbasis
+              organik yang mudah terurai secara alami.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Edukasi dan Kesadaran Lingkungan:</strong> Hidroponik
+              mendorong masyarakat untuk lebih sadar pentingnya memilih bahan
+              yang ramah lingkungan untuk bercocok tanam.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
-        </>
-      ),
-    },
-    {
-      id: 16,
-      title: "Energi Terbarukan untuk Sistem Hidroponik yang Berkelanjutan",
-      image: "/src/assets/16.jpg",
-      category: "keberlanjutan",
-      date: "2023-10-17",
-      content: (
-        <>
-          <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
-          </p>
-          <br></br>
-          <ul className="list-disc pl-6">
-            <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
-            </li>
-            <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
-            </li>
-            <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
-            </li>
-            <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
-            </li>
-            <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
-            </li>
-          </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
     {
       id: 17,
       title: "Energi hidroponik",
-      image: "/src/assets/pakcoy.jpg",
+      image: "/src/assets/17.webp",
       category: "inovasi",
       date: "2023-10-18",
       content: (
         <>
           <p>
-            Pemupukan merupakan salah satu langkah penting dalam meningkatkan
-            produktivitas tanaman. Berikut adalah poin-poin penting yang perlu
-            diperhatikan agar pemupukan dapat memberikan hasil maksimal:
+            Energi merupakan salah satu komponen penting dalam operasional
+            sistem hidroponik. Meskipun sistem ini sangat efisien dalam
+            penggunaan sumber daya seperti air dan lahan, hidroponik juga
+            membutuhkan energi untuk mendukung proses pertumbuhan tanaman,
+            terutama dalam lingkungan yang terkendali.
           </p>
-          <br></br>
-          <ul className="list-disc pl-6">
+          <h2>Aspek Penting Terkait Energi dalam Hidroponik:</h2>
+          <ul>
             <li>
-              <strong>Periksa pH Secara Rutin:</strong> Gunakan pH meter atau
-              kertas lakmus untuk mengecek pH larutan nutrisi setiap 2–3 hari.
+              <strong>Penerangan Buatan (Grow Lights):</strong> Hidroponik
+              sering menggunakan lampu LED untuk menggantikan sinar matahari,
+              yang hemat energi dan mendukung fotosintesis secara optimal.
             </li>
             <li>
-              <strong>Gunakan Larutan pH Up/Down:</strong> Tambahkan pH up jika
-              terlalu rendah, atau pH down jika terlalu tinggi, secara perlahan
-              sambil memantau perubahan.
+              <strong>Pompa Air dan Sirkulasi Nutrisi:</strong> Sistem ini
+              membutuhkan pompa untuk mengalirkan air dan nutrisi. Penggunaan
+              pompa hemat energi dapat mengurangi biaya operasional.
             </li>
             <li>
-              <strong>Gunakan Air Berkualitas:</strong> Pilih air bersih seperti
-              air RO (reverse osmosis) untuk menghindari fluktuasi pH akibat
-              mineral berlebih.
+              <strong>Ventilasi dan Kontrol Suhu:</strong> Kipas, pendingin
+              udara, atau pemanas digunakan untuk menjaga lingkungan ideal,
+              dengan dukungan perangkat hemat energi.
             </li>
             <li>
-              <strong>Ganti Larutan Nutrisi:</strong> Lakukan penggantian
-              larutan setiap 1–2 minggu untuk mencegah penumpukan garam yang
-              dapat memengaruhi pH.
+              <strong>Energi Terbarukan:</strong> Panel surya mulai digunakan
+              untuk mendukung operasional hidroponik secara ramah lingkungan.
             </li>
             <li>
-              <strong>Pantau Suhu:</strong> Pastikan suhu larutan berada dalam
-              kisaran 18–22°C untuk menjaga kestabilan pH.
+              <strong>Penggunaan Sistem Otomasi:</strong> Teknologi otomatisasi
+              memungkinkan pemantauan dan pengendalian energi secara efisien,
+              mengurangi penggunaan daya yang tidak perlu.
+            </li>
+            <li>
+              <strong>Efisiensi Energi untuk Keberlanjutan:</strong> Pemanfaatan
+              energi yang efisien mendukung pertanian modern sekaligus
+              mengurangi jejak karbon.
             </li>
           </ul>
-          <br></br>
-          <p>
-            Dengan perawatan rutin ini, sistem hidroponik Anda akan bekerja
-            lebih efisien dan tanaman akan tumbuh lebih sehat.
-          </p>
         </>
       ),
     },
@@ -991,6 +959,87 @@ const Artikel = () => {
   const closeModal = () => {
     setSelectedArticle(null);
   };
+
+  // const Artikel = () => {
+  //   const [searchInput, setSearchInput] = useState("");
+
+  //   const [currentPageTips, setCurrentPageTips] = useState(1);
+
+  //   const [currentPageInovasi, setCurrentPageInovasi] = useState(1);
+
+  //   const [currentPageKeberlanjutan, setCurrentPageKeberlanjutan] = useState(1);
+
+  //   const articlesPerPage = 3;
+
+  //   const [selectedCategory, setSelectedCategory] = useState("");
+
+  //   const [selectedArticle, setSelectedArticle] = useState(null);
+
+  //   const [isOpen, setIsOpen] = useState(false);
+
+  //   const [articles, setArticles] = useState([]);
+
+  //   const fetchArticles = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:5000/api/articles");
+
+  //       setArticles(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching articles", error);
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     fetchArticles();
+  //   }, []);
+
+  //   const handleOpen = () => setIsOpen(true);
+
+  //   const handleClose = () => setIsOpen(false);
+
+  //   const handleSearch = () => {
+  //     const foundArticle = articles.find((article) =>
+  //       article.title.toLowerCase().includes(searchInput.toLowerCase())
+  //     );
+
+  //     if (foundArticle) {
+  //       setSelectedArticle(foundArticle);
+  //     } else {
+  //       alert("Artikel tidak ditemukan");
+  //     }
+  //   };
+
+  //   const paginateArticles = (articles, currentPage) => {
+  //     const startIndex = (currentPage - 1) * articlesPerPage;
+
+  //     return articles.slice(startIndex, startIndex + articlesPerPage);
+  //   };
+
+  //   const currentTipsArticles = paginateArticles(
+  //     articles.filter((article) => article.category === "tips"),
+
+  //     currentPageTips
+  //   );
+
+  //   const currentInovasiArticles = paginateArticles(
+  //     articles.filter((article) => article.category === "inovasi"),
+
+  //     currentPageInovasi
+  //   );
+
+  //   const currentKeberlanjutanArticles = paginateArticles(
+  //     articles.filter((article) => article.category === "keberlanjutan"),
+
+  //     currentPageKeberlanjutan
+  //   );
+
+  //   const openModal = (article) => {
+  //     setSelectedArticle(article);
+  //   };
+
+  //   const closeModal = () => {
+  //     setSelectedArticle(null);
+  //   };
 
   return (
     <div>

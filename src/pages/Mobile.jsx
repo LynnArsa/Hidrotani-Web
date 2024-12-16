@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import NavbarUser from "../components/NavbarUser";
+
 
 const Mobile = () => {
   const [visibleParagraph, setVisibleParagraph] = useState(null);
