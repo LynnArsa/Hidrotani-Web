@@ -25,15 +25,15 @@ const Navbar = () => {
 
   // const handleLogin = () => {
   //   setIsLoggedIn(true);
-  //   setUserImage("src/assets/logo-user.png"); // Path ke gambar avatar pengguna
+  //   setUserImage("public/logo-user.png"); // Path ke gambar avatar pengguna
   // };
   const handleLogin = () => {
     const username = "Nama Pengguna"; // Ambil nama pengguna dari response API atau form
     setIsLoggedIn(true);
-    setUserImage("src/assets/logo-user.png"); // Ganti dengan gambar pengguna
+    setUserImage("public/logo-user.png"); // Ganti dengan gambar pengguna
     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("userName", username); // Simpan nama pengguna
-    localStorage.setItem("userImage", "src/assets/logo-user.png");
+    localStorage.setItem("userImage", "public/logo-user.png");
     navigate("/user"); // Arahkan ke halaman dashboard pengguna setelah login
   };
 
@@ -97,7 +97,7 @@ const Navbar = () => {
             <div className="flex flex-shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="src/assets/logo-hidro-tani.png"
+                src="public/logo-hidro-tani.png"
                 alt="Hidrotani"
               />
             </div>

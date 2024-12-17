@@ -10,7 +10,7 @@ const Edukasi = () => {
   // Data berita (dapat diganti dengan data API jika tersedia)
   const beritaList = [
     {
-      img: "src/assets/budidaya-hidroponik-samarinda.jpeg",
+      img: "public/budidaya-hidroponik-samarinda.jpeg",
       title: "Budi Daya Sayur Hidroponik Beromzet Rp 1,5 Juta/Bulan",
       date: "DetikFinance (24 Okt 2024)",
       description:
@@ -19,7 +19,7 @@ const Edukasi = () => {
       credit: "Gambar dan informasi bersumber dari Detik Finance.",
     },
     {
-      img: "src/assets/pencipta-hydroboom.jpeg",
+      img: "public/pencipta-hydroboom.jpeg",
       title: "Mahasiswa Surabaya Ciptakan Hydrobloom untuk Pembelajaran Sains",
       date: "DetikJatim (26 Sep 2024)",
       description:
@@ -27,7 +27,7 @@ const Edukasi = () => {
       link: "https://www.detik.com/jatim/berita/d-7559127/mahasiswa-surabaya-ciptakan-hydrobloom-untuk-pembelajaran-sains",
     },
     {
-      img: "src/assets/pemuda-ponorogo.jpeg",
+      img: "public/pemuda-ponorogo.jpeg",
       title:
         "Pemuda Ponorogo Pilih Jadi Petani Melon, Cuan Rp 30 Juta Setiap Panen",
       date: "DetikJatim (25 Agu 2024)",
@@ -36,7 +36,7 @@ const Edukasi = () => {
       link: "https://www.detik.com/jatim/bisnis/d-7507811/pemuda-ponorogo-pilih-jadi-petani-melon-cuan-rp-30-juta-setiap-panen",
     },
     {
-      img: "src/assets/aneka-sayur.jpeg",
+      img: "public/aneka-sayur.jpeg",
       title:
         "Tanam Aneka Sayur di Pekarangan Jadi Tambahan Pendapatan Warga Muara Enim",
       date: "28 Jul 2024",
@@ -46,7 +46,7 @@ const Edukasi = () => {
     },
 
     {
-      img: "src/assets/menanam-melon.webp",
+      img: "public/menanam-melon.webp",
       title: "Cara Menanam Melon dari Biji",
       date: "Liputan 6 (6 Nov 2024)",
       description:
@@ -54,14 +54,14 @@ const Edukasi = () => {
       link: "https://www.liputan6.com/feeds/read/5771519/cara-menanam-melon-dari-biji-panduan-lengkap-untuk-hasil-panen-melimpah",
     },
     {
-      img: "src/assets/menanam-cabe.webp",
+      img: "public/menanam-cabe.webp",
       title: "Cara Menamam Cabe",
       date: "Liputan 6 (6 Nov 2024)",
       description: "Pelajari cara menanam cabe dengan mudah dan efektif..",
       link: "https://www.liputan6.com/feeds/read/5763117/cara-menanam-cabe-panduan-lengkap-dari-persiapan-hingga-panen",
     },
     {
-      img: "src/assets/menanam-hidroponik.webp",
+      img: "public/menanam-hidroponik.webp",
       title: "Cara Menanam Tanaman Hidroponik",
       date: "Liputan 6 (6 Nov 2024)",
       description:
@@ -69,7 +69,7 @@ const Edukasi = () => {
       link: "https://www.liputan6.com/feeds/read/5771521/cara-menanam-tanaman-hidroponik-panduan-lengkap-untuk-pemula",
     },
     {
-      img: "src/assets/green-house.jpeg",
+      img: "public/green-house.jpeg",
       title: "Budidaya Hidroponik di Atas Pasar Mayestik",
       date: "CNN Indonesia (31 Jul 2024)",
       description:
@@ -117,7 +117,7 @@ const Edukasi = () => {
           </div>
           <div className="w-full md:w-1/2">
             <img
-              src="src/assets/edukasi.png"
+              src="public/edukasi.png"
               alt="Edukasi Icon"
               className="mx-auto"
             />
@@ -129,7 +129,7 @@ const Edukasi = () => {
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center m-12">
           <div className="bg-green-100 text-green-900 rounded-lg shadow-lg p-6 max-w-xs md:max-w-sm text-center">
             <img
-              src="src/assets/edukasi-panduan.png"
+              src="public/edukasi-panduan.png"
               alt="Panduan Icon"
               className="mx-auto mb-4"
             />
@@ -147,7 +147,7 @@ const Edukasi = () => {
 
           <div className="bg-green-100 text-green-900 rounded-lg shadow-lg p-6 max-w-xs md:max-w-sm text-center">
             <img
-              src="src/assets/edukasi-artikel.png"
+              src="public/edukasi-artikel.png"
               alt="Artikel Icon"
               className="mx-auto mb-4"
             />
@@ -165,7 +165,7 @@ const Edukasi = () => {
 
           <div className="bg-green-100 text-green-900 rounded-lg shadow-lg p-6 max-w-xs md:max-w-sm text-center">
             <img
-              src="src/assets/edukasi-faq.png"
+              src="public/edukasi-faq.png"
               alt="FAQ Icon"
               className="mx-auto mb-4"
             />

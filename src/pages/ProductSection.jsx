@@ -15,7 +15,7 @@ const ProductSection = () => {
         <div className="flex overflow-x-auto space-x-4 md:space-x-8 pb-4">
           <div className="bg-white min-w-[200px] md:min-w-[300px] p-4 md:p-6 rounded-lg shadow-lg text-left">
             <img
-              src="/src/assets/paket-hiroponik.jpg"
+              src="/public/paket-hiroponik.jpg"
               alt="Produk 1"
               className="mx-auto mb-2 md:mb-4 w-full h-32 md:h-48 object-cover rounded-md"
             />

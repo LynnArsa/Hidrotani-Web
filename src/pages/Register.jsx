@@ -59,7 +59,7 @@ const RegisterForm = ({ setIsRegistered, setRegisteredUser }) => {
 
         <div className="flex justify-center mb-6">
           <img
-            src="/src/assets/logo-hidro-tani.png"
+            src="/public/logo-hidro-tani.png"
             alt="Logo"
             className="w-16 h-16 sm:w-12 sm:h-12"
           />

@@ -27,31 +27,31 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Pembayaran</h3>
           <div className="flex gap-4">
             <img
-              src="src/assets/gopay.png"
+              src="public/gopay.png"
               alt="GoPay"
               className="w-12 h-10 object-contain" // Tambahkan object-contain untuk menjaga proporsi gambar
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }} // Ukuran tetap
             />
             <img
-              src="src/assets/ovo.png"
+              src="public/ovo.png"
               alt="OVO"
               className="w-12 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}
             />
             <img
-              src="src/assets/dana.png"
+              src="public/dana.png"
               alt="Dana"
               className="w-10 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}
             />
             <img
-              src="src/assets/seabank.png"
+              src="public/seabank.png"
               alt="LinkAja"
               className="w-10 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}
             />
             <img
-              src="src/assets/mandiri.png"
+              src="public/mandiri.png"
               alt="LinkAja"
               className="w-10 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}
@@ -64,25 +64,25 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Pengiriman</h3>
           <div className="flex gap-4">
             <img
-              src="src/assets/sicepat.png"
+              src="public/sicepat.png"
               alt="GoPay"
               className="w-12 h-10 object-contain" // Tambahkan object-contain untuk menjaga proporsi gambar
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }} // Ukuran tetap
             />
             <img
-              src="src/assets/spx-express.png"
+              src="public/spx-express.png"
               alt="OVO"
               className="w-12 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}
             />
             <img
-              src="src/assets/ninja-xpress.png"
+              src="public/ninja-xpress.png"
               alt="Dana"
               className="w-10 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}
             />
             <img
-              src="src/assets/gojek.png"
+              src="public/gojek.png"
               alt="LinkAja"
               className="w-10 h-10 object-contain"
               style={{ minWidth: "2.5rem", minHeight: "2.5rem" }}

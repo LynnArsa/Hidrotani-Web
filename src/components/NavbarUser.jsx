@@ -4,7 +4,7 @@ import { useState } from 'react';
 const NavbarUser  = () => {
   const [activeLink, setActiveLink] = useState('/');
   const [isOpen, setIsOpen] = useState(false);
-  const [userImage, setUserImage] = useState('src/assets/logo-user.png'); // Path ke gambar avatar pengguna
+  const [userImage, setUserImage] = useState('public/logo-user.png'); // Path ke gambar avatar pengguna
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
@@ -40,7 +40,7 @@ const NavbarUser  = () => {
             <div className="flex flex-shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="src/assets/logo-hidro-tani.png"
+                src="public/logo-hidro-tani.png"
                 alt="Hidrotani"
               />
             </div>

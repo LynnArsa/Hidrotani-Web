@@ -179,7 +179,7 @@ const Content = () => {
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-6">
           <img
-            src="/src/assets/media-tanam.png"
+            src="/public/media-tanam.png"
             alt="Peralatan Hidroponik"
             className="w-full md:w-1/2 h-auto rounded-lg shadow-lg"
           />
@@ -274,7 +274,7 @@ const Content = () => {
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-6">
           <img
-            src="/src/assets/hama.png"
+            src="/public/hama.png"
             alt="Peralatan Hidroponik"
             className="w-full md:w-1/2 h-auto rounded-lg shadow-lg"
           />
@@ -689,7 +689,7 @@ const Content = () => {
           Apa saja jenis lampu grow light yang cocok untuk hidroponik?
         </h2>
         <img
-          src="/src/assets/export-hidroponik.png"
+          src="/public/export-hidroponik.png"
           alt="System maintenance"
           className="my-4"
   style={{ width: "50%", height: "auto" }}
@@ -1077,7 +1077,7 @@ const Content = () => {
           Bagaimana cara mempromosikan produk hidroponik di media sosial?
         </h2>
         <img
-          src="/src/assets/promosi-produk-hidroponik.png"
+          src="/public/promosi-produk-hidroponik.png"
           alt="System maintenance"
           className="w-1/2 h-auto my-4"
         />

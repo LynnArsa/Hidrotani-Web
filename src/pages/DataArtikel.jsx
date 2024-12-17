@@ -2,7 +2,7 @@ export const articles = [
     {
       id: 1,
       title: "Cara Menjaga Keseimbangan pH Ideal dalam Sistem Hidroponik",
-      image: "/src/assets/pakcoy.jpg",
+      image: "/public/pakcoy.jpg",
       content: (
         <>
           <ol className="list-decimal">
@@ -37,12 +37,12 @@ export const articles = [
     {
       id: 2,
       title: "Pemupukan yang Tepat untuk Hasil Panen Maksimal",
-      image: "/src/assets/pakcoy.jpg",
+      image: "/public/pakcoy.jpg",
     },
     {
       id: 3,
       title: "Teknik Penyiraman Efisien",
-      image: "/src/assets/pakcoy.jpg",
+      image: "/public/pakcoy.jpg",
     },
     // Tambahkan artikel lainnya sesuai kebutuhan
   ];

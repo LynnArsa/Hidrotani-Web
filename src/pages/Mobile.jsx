@@ -44,12 +44,12 @@ const Mobile = () => {
           </div>
           <div className="w-full md:w-1/2 p-4 flex justify-center md:justify-end gap-4">
             <img
-              src="src/assets/aplikasi-hidrotani2.png"
+              src="public/aplikasi-hidrotani2.png"
               className="w-full sm:max-w-sm md:max-w-md h-auto rounded-lg"
               alt="Mobile App 1"
             />
             <img
-              src="src/assets/aplikasi-hidrotani1.png"
+              src="public/aplikasi-hidrotani1.png"
               className="w-full sm:max-w-sm md:max-w-md h-auto rounded-lg"
               alt="Mobile App 2"
             />
@@ -62,7 +62,7 @@ const Mobile = () => {
           {/* Bagian Gambar */}
           <div className="flex flex-col items-center">
             <img
-              src="src/assets/mobile3.png"
+              src="public/mobile3.png"
               alt="Gemah Ripah Tani2"
               className="w-full max-w-xs md:max-w-md rounded-xl"
             />
@@ -171,12 +171,12 @@ const Mobile = () => {
           {/* Bagian Gambar */}
           <div className="flex flex-col items-center md:w-1/2">
             <img
-              src="src/assets/mobile2.png"
+              src="public/mobile2.png"
               alt="Gemah Ripah Tani2"
               className="w-2/3 max-w-none md:max-w-md rounded-xl max-h-48 object-contain" // ukuran lebih kecil untuk mobile
             />
             <img
-              src="src/assets/mobile1.png"
+              src="public/mobile1.png"
               alt="Gemah Ripah Tani2"
               className="w-2/3 max-w-none md:max-w-md rounded-xl bg-transparent max-h-48 object-contain" // ukuran lebih kecil untuk mobile
             />

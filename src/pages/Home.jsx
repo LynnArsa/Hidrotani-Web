@@ -11,32 +11,32 @@ const Home = () => {
     {
       name: "Atalya",
       text: "Aplikasi ini sangat membantu dalam bertani hidroponik.",
-      image: "src/assets/wanita.png",
+      image: "public/wanita.png",
     },
     {
       name: "Adi",
       text: "Produk HidroTani berkualitas dan mudah digunakan.",
-      image: "src/assets/pria.png",
+      image: "public/pria.png",
     },
     {
       name: "Amdy",
       text: "Komunitas yang aktif dan penuh dukungan.",
-      image: "src/assets/pria.png",
+      image: "public/pria.png",
     },
     {
       name: "Lintang",
       text: "Sangat membantu untuk pemula.",
-      image: "src/assets/wanita.png",
+      image: "public/wanita.png",
     },
     {
       name: "Faraz",
       text: "Panduan yang sangat jelas dan informatif.",
-      image: "src/assets/pria.png",
+      image: "public/pria.png",
     },
     {
       name: "Rayhan",
       text: "Harga produk terjangkau dan layanan cepat.",
-      image: "src/assets/pria.png",
+      image: "public/pria.png",
     },
   ];
 
@@ -83,7 +83,7 @@ const Home = () => {
           </div>
           <div className="w-full md:w-1/2 p-4 flex justify-center">
             <img
-              src="src/assets/mobile-app.png"
+              src="public/mobile-app.png"
               className="mx-auto "
               alt="Mobile App"
             />
@@ -108,7 +108,7 @@ const Home = () => {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <img
-              src="src/assets/logo-hidro-tani.png"
+              src="public/logo-hidro-tani.png"
               alt="HidroTani Logo"
               className="h-auto max-w-xs md:max-w-sm" // Responsif
             />
@@ -125,7 +125,7 @@ const Home = () => {
           <div className="flex flex-wrap justify-center gap-8">
             <div className="bg-[#075852] p-4 rounded-lg shadow flex flex-col items-center min-w-[200px] max-w-[300px]">
               <img
-                src="/src/assets/E-commerce.png"
+                src="/public/E-commerce.png"
                 alt="E-commerce"
                 className="mx-auto mb-4 w-24 h-24 md:w-32 md:h-32 object-contain"
               />
@@ -136,7 +136,7 @@ const Home = () => {
             </div>
             <div className="bg-[#075852] p-4 rounded-lg shadow flex flex-col items-center min-w-[200px] max-w-[300px]">
               <img
-                src="/src/assets/Komunitas.png"
+                src="/public/Komunitas.png"
                 alt="Forum Komunitas"
                 className="mx-auto mb-4 w-24 h-24 md:w-32 md:h-32 object-contain"
               />
@@ -147,7 +147,7 @@ const Home = () => {
             </div>
             <div className="bg-[#075852] p-4 rounded-lg shadow flex flex-col items-center min-w-[200px] max-w-[300px]">
               <img
-                src="/src/assets/Edukasi.png"
+                src="/public/Edukasi.png"
                 alt="Edukasi"
                 className="mx-auto mb-4 w-24 h-24 md:w-32 md:h-32 object-contain"
               />
@@ -180,7 +180,7 @@ const Home = () => {
           </div>
           <div className="flex justify-center md:justify-end">
             <img
-              src="src/assets/homepage-forum.png"
+              src="public/homepage-forum.png"
               alt="Homepage Forum"
               className="w-full h-auto max-w-xs md:max-w-full"
             />
@@ -247,7 +247,7 @@ const Home = () => {
             {/* Kotak Produk 1 */}
             <div className="bg-[#D5F0DB] min-w-[200px] md:min-w-[300px] p-4 md:p-6 rounded-lg shadow-lg text-left">
               <img
-                src="/src/assets/paket-hiroponik.jpg"
+                src="/public/paket-hiroponik.jpg"
                 alt="Produk 1"
                 className="mx-auto mb-2 md:mb-4 w-full h-32 md:h-48 object-cover rounded-md"
               />
@@ -271,7 +271,7 @@ const Home = () => {
             {/* Kotak Produk 2 */}
             <div className="bg-[#D5F0DB] min-w-[200px] md:min-w-[300px] p-4 md:p-6 rounded-lg shadow-lg text-left">
               <img
-                src="/src/assets/nutrisi-hidroponik.jpg"
+                src="/public/nutrisi-hidroponik.jpg"
                 alt="Produk 2"
                 className="mx-auto mb-2 md:mb-4 w-full h-32 md:h-48 object-cover rounded-md"
               />
@@ -295,7 +295,7 @@ const Home = () => {
             {/* Kotak Produk 3 */}
             <div className="bg-[#D5F0DB] min-w-[200px] md:min-w-[300px] p-4 md:p-6 rounded-lg shadow-lg text-left">
               <img
-                src="/src/assets/pakcoy.jpg"
+                src="/public/pakcoy.jpg"
                 alt="Produk 3"
                 className="mx-auto mb-2 md:mb-4 w-full h-32 md:h-48 object-cover rounded-md"
               />
@@ -319,7 +319,7 @@ const Home = () => {
             {/* Kotak Produk 4 */}
             <div className="bg-[#D5F0DB] min-w-[200px] md:min-w-[300px] p-4 md:p-6 rounded-lg shadow-lg text-left">
               <img
-                src="/src/assets/instalasi-hidroponik.jpg"
+                src="/public/instalasi-hidroponik.jpg"
                 alt="Produk 4"
                 className="mx-auto mb-2 md:mb-4 w-full h-32 md:h-48 object-cover rounded-md"
               />
