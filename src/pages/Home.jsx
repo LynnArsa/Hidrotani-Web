@@ -147,7 +147,7 @@ const Home = () => {
             </div>
             <div className="bg-[#075852] p-4 rounded-lg shadow flex flex-col items-center min-w-[200px] max-w-[300px]">
               <img
-                src="Edukasi.png"
+                src="edukasi-home.png"
                 alt="Edukasi"
                 className="mx-auto mb-4 w-24 h-24 md:w-32 md:h-32 object-contain"
               />
