@@ -13,7 +13,7 @@ const Forum = () => {
     const storedUser = localStorage.getItem("user");
     return storedUser
       ? JSON.parse(storedUser)
-      : { username: "", avatar: "public/logo-user.png" };
+      : { username: "", avatar: "logo-user.png" };
   });
 
   const [posts, setPosts] = useState([
@@ -25,7 +25,7 @@ const Forum = () => {
       title: "Pengalaman Menanam Tanaman Hidroponik",
       content:
         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
-      image: "public/tanaman-layu.jpg",
+      image: "tanaman-layu.jpg",
       comments: [],
       showComments: false,
     },
@@ -37,7 +37,7 @@ const Forum = () => {
       title: "Cara Merawat Tanaman Hidroponik",
       content:
         "Nutrisi apa saja yang dibutuhkan tanaman dalam sistem hidroponik?",
-      image: "public/tanaman-layu2.jpg",
+      image: "tanaman-layu2.jpg",
       comments: [],
       showComments: false,
     },
@@ -49,7 +49,7 @@ const Forum = () => {
       title: "Perawatan Tanaman Hidroponik",
       content:
         "Bagaimana cara mengatasi hama dan penyakit pada tanaman hidroponik?",
-      image: "public/tanaman-layu3.jpg",
+      image: "tanaman-layu3.jpg",
       comments: [],
       showComments: false,
     },
@@ -95,7 +95,7 @@ const Forum = () => {
     if (!newComment.trim()) return;
     const commentWithUser = {
       username: currentUser.username,
-      avatar: currentUser .avatar || "public/logo-user.png",
+      avatar: currentUser .avatar || "logo-user.png",
       text: newComment,
     };
     setPosts((prevPosts) =>
@@ -195,7 +195,7 @@ const Forum = () => {
   //       content:
   //         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
 
-  //       image: "public/tanaman-layu.jpg",
+  //       image: "tanaman-layu.jpg",
 
   //       comments: [""],
 
@@ -376,7 +376,7 @@ const Forum = () => {
           </div>
           <div className="w-full md:w-1/2 p-4 flex justify-center">
             <img
-              src="public/section-forum.png"
+              src="section-forum.png"
               className="max-w-[250px] h-auto rounded-lg"
               alt="Forum Komunitas"
             />
@@ -471,7 +471,7 @@ const Forum = () => {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src="public/logo-user.png"
+                  src="logo-user.png"
                   alt=""
                   className="w-12 h-12 rounded-full mr-4"
                 />

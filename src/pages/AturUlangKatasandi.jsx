@@ -36,7 +36,7 @@ const AturUlangKatasandi = () => {
             Atur Ulang Kata Sandi
           </h2>
           <img
-            src="/public/logo-hidro-tani.png"
+            src="logo-hidro-tani.png"
             alt="Logo HidroTani"
             className="w-16 h-16 sm:w-12 sm:h-12"
           />

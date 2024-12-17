@@ -25,7 +25,7 @@ const User = ({ registeredUser }) => {
         username: registeredUser.username,
         email: registeredUser.email,
         profilePicture:
-          registeredUser.profilePicture || "public/logo-user.png",
+          registeredUser.profilePicture || "logo-user.png",
       });
     }
   }, [registeredUser]);
@@ -165,7 +165,7 @@ const User = ({ registeredUser }) => {
             <div className="text-center mb-6">
               <div className="relative inline-block">
                 <img
-                  src={userData.profilePicture || "public/logo-user.png"}
+                  src={userData.profilePicture || "logo-user.png"}
                   alt="Foto Pengguna"
                   className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                 />

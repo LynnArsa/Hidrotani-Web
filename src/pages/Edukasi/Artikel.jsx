@@ -22,7 +22,7 @@ const Artikel = () => {
     {
       id: 1,
       title: "Cara Menjaga Keseimbangan pH Ideal dalam Sistem Hidroponik",
-      image: "/public/1.webp",
+      image: "1.webp",
       category: "tips",
       date: "2023-10-01",
       content: (
@@ -68,7 +68,7 @@ const Artikel = () => {
     {
       id: 2,
       title: "Pemupukan yang Tepat untuk Hasil Panen Maksimal",
-      image: "/public/2.webp",
+      image: "2.webp",
       category: "tips",
       date: "2023-10-02",
       content: (
@@ -167,7 +167,7 @@ const Artikel = () => {
     {
       id: 3,
       title: "Teknik Penyiraman Efisien",
-      image: "/public/4.webp",
+      image: "4.webp",
       category: "tips",
       date: "2023-10-03",
       content: (
@@ -214,7 +214,7 @@ const Artikel = () => {
     {
       id: 4,
       title: "Cara Mudah Memelihara Tanaman Indoor yang Bebas Repot",
-      image: "/public/3.webp",
+      image: "3.webp",
       category: "inovasi",
       date: "2023-10-04",
       content: (
@@ -261,7 +261,7 @@ const Artikel = () => {
     {
       id: 5,
       title: "Perawatan Tanaman di Musim Hujan Agar Tidak Busuk",
-      image: "/public/5.webp",
+      image: "5.webp",
       category: "tips",
       date: "2023-10-05",
       content: (
@@ -308,7 +308,7 @@ const Artikel = () => {
     {
       id: 6,
       title: "Rahasia Menjaga Tanaman Tetap Hijau Sepanjang Tahun",
-      image: "/public/6.webp",
+      image: "6.webp",
       category: "tips",
       date: "2023-10-06",
       content: (
@@ -355,7 +355,7 @@ const Artikel = () => {
     {
       id: 7,
       title: "Teknologi Hidroponik Terbaru untuk Meningkatkan Hasil Panen",
-      image: "/public/7.jpg",
+      image: "7.jpg",
       category: "inovasi",
       date: "2023-10-07",
       content: (
@@ -479,7 +479,7 @@ const Artikel = () => {
       id: 8,
       title:
         "Inovasi Pertanian Vertikal yang Membawa Dampak Positif bagi Lingkungan",
-      image: "/public/8.jpg",
+      image: "8.jpg",
       category: "inovasi",
       date: "2023-10-08",
       content: (
@@ -533,7 +533,7 @@ const Artikel = () => {
     {
       id: 9,
       title: "Penggunaan Robotika dalam Pertanian Hidroponik",
-      image: "/public/9.jpg",
+      image: "9.jpg",
       category: "inovasi",
       date: "2023-10-10",
       content: (
@@ -572,7 +572,7 @@ const Artikel = () => {
       id: 10,
       title:
         "Pemanfaatan AI untuk Meningkatkan Efisiensi dalam Budidaya Hidroponik",
-      image: "/public/10.jpg",
+      image: "10.jpg",
       category: "inovasi",
       date: "2023-10-11",
       content: (
@@ -623,7 +623,7 @@ const Artikel = () => {
       id: 11,
       title:
         "Sistem Akuaponik sebagai Alternatif Hidroponik yang Ramah Lingkungan",
-      image: "/public/11.jpg",
+      image: "11.jpg",
       category: "keberlanjutan",
       date: "2023-10-12",
       content: (
@@ -668,7 +668,7 @@ const Artikel = () => {
     {
       id: 12,
       title: "Mengurangi Jejak Karbon dengan Hidroponik",
-      image: "/public/12.jpg",
+      image: "12.jpg",
       category: "keberlanjutan",
       date: "2023-10-13",
       content: (
@@ -718,7 +718,7 @@ const Artikel = () => {
     {
       id: 13,
       title: "Keuntungan Pertanian Vertikal untuk Keberlanjutan Lingkungan",
-      image: "/public/13.jpg",
+      image: "13.jpg",
       category: "keberlanjutan",
       date: "2023-10-14",
       content: (
@@ -769,7 +769,7 @@ const Artikel = () => {
     {
       id: 14,
       title: "Pentingnya Penggunaan Air dalam Sistem Hidroponik",
-      image: "/public/14.jpg",
+      image: "14.jpg",
       category: "keberlanjutan",
       date: "2023-10-15",
       content: (
@@ -821,7 +821,7 @@ const Artikel = () => {
     {
       id: 15,
       title: "Hidroponik dan Pengurangan Limbah Plastik",
-      image: "/public/15.jpg",
+      image: "15.jpg",
       category: "keberlanjutan",
       date: "2023-10-16",
       content: (
@@ -868,7 +868,7 @@ const Artikel = () => {
     {
       id: 17,
       title: "Energi hidroponik",
-      image: "/public/17.webp",
+      image: "17.webp",
       category: "inovasi",
       date: "2023-10-18",
       content: (
@@ -1076,7 +1076,7 @@ const Artikel = () => {
 
           <div className="w-full md:w-1/2 p-4 flex justify-center">
             <img
-              src="/public/section-artikel.png"
+              src="section-artikel.png"
               className="w-64 h-48 rounded-lg object-cover"
               alt="Mobile App"
             />

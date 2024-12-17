@@ -5,12 +5,12 @@ import NavbarUser from "../components/NavbarUser";
 
 const About = () => {
   const images = [
-    "c/assrsets/galeri-tani.png",
-    "public/galeri-tani2.png",
-    "public/galeri-tani3.png",
-    "public/bertani1.jpg",
-    "public/bertani1.jpg",
-    "public/bertani1.jpg",
+    "galeri-tani.png",
+    "galeri-tani2.png",
+    "galeri-tani3.png",
+    "bertani1.jpg",
+    "bertani1.jpg",
+    "bertani1.jpg",
   ];
 
   const [startIndex, setStartIndex] = useState(0);
@@ -63,7 +63,7 @@ const About = () => {
           </div>
           <div className="w-full md:w-1/2 p-4 flex justify-center">
             <img
-              src="public/tentang-kami.png"
+              src="tentang-kami.png"
               className="max-w-full h-auto rounded-lg "
               alt="Mobile App"
             />
@@ -122,7 +122,7 @@ const About = () => {
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end">
             <img
-              src="public/gemah-ripah-tani2.png"
+              src="gemah-ripah-tani2.png"
               alt="Gemah Ripah Tani2"
               className="max-w-xs md:max-w-md rounded-xl shadow-md"
             />
@@ -221,7 +221,7 @@ const About = () => {
               </div>
               <div className="w-full md:w-1/2">
                 <img
-                  src="public/kualitas-produk.jpg"
+                  src="kualitas-produk.jpg"
                   alt="Kualitas Produk"
                   className="w-full h-auto max-w-xs rounded-lg shadow-md mx-auto md:mx-20"
                 />
@@ -239,7 +239,7 @@ const About = () => {
               </div>
               <div className="w-full md:w-1/2">
                 <img
-                  src="public/ahli.jpg"
+                  src="ahli.jpg"
                   alt="Edukasi"
                   className="w-full h-auto max-w-xs rounded-lg shadow-md mx-auto md:mx-20"
                 />
@@ -258,7 +258,7 @@ const About = () => {
               </div>
               <div className="w-full md:w-1/2">
                 <img
-                  src="public/berkomunitas.jpg"
+                  src="berkomunitas.jpg"
                   alt="Komunitas"
                   className="w-full h-auto max-w-xs rounded-lg  shadow-md mx-auto md:mx-20"
                 />
