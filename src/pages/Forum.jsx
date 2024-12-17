@@ -25,7 +25,7 @@ const Forum = () => {
       title: "Pengalaman Menanam Tanaman Hidroponik",
       content:
         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
-      image: "tanaman-layu.jpg",
+      image: "/public/tanaman-layu.jpg",
       comments: [],
       showComments: false,
     },
@@ -37,7 +37,7 @@ const Forum = () => {
       title: "Cara Merawat Tanaman Hidroponik",
       content:
         "Nutrisi apa saja yang dibutuhkan tanaman dalam sistem hidroponik?",
-      image: "tanaman-layu2.jpg",
+      image: "/public/tanaman-layu2.jpg",
       comments: [],
       showComments: false,
     },
@@ -49,7 +49,7 @@ const Forum = () => {
       title: "Perawatan Tanaman Hidroponik",
       content:
         "Bagaimana cara mengatasi hama dan penyakit pada tanaman hidroponik?",
-      image: "tanaman-layu3.jpg",
+      image: "/public/tanaman-layu3.jpg",
       comments: [],
       showComments: false,
     },
