@@ -7,42 +7,48 @@ const Forum = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newPostCategory, setNewPostCategory] = useState(""); // State untuk kategori
   const [selectedImage, setSelectedImage] = useState("");
-  const [currentUser, setCurrentUser] = useState({
-    username: "Rayhan", // Ganti dengan nama pengguna yang sesuai
-    avatar: "src/assets/pria.png", // Ganti dengan URL gambar avatar pengguna
+  const [newCommentImage, setNewCommentImage] = useState(null);
+  
+  const [currentUser, setCurrentUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser
+      ? JSON.parse(storedUser)
+      : { username: "", avatar: "src/assets/logo-user.png" };
   });
 
   const [posts, setPosts] = useState([
     {
       id: 1,
-      username: "Pengguna 1",
+      username: "Amdy",
       time: "2 jam yang lalu",
       category: "Sayuran",
       title: "Pengalaman Menanam Tanaman Hidroponik",
       content:
         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
       image: "src/assets/tanaman-layu.jpg",
-      comments: [""],
+      comments: [],
       showComments: false,
     },
     {
       id: 2,
-      username: "Pengguna 2",
+      username: "Adi",
       time: "5 jam yang lalu",
       category: "Sayuran",
       title: "Cara Merawat Tanaman Hidroponik",
-      content: "Postingan lain tentang hidroponik dan cara merawat tanaman.",
+      content:
+        "Nutrisi apa saja yang dibutuhkan tanaman dalam sistem hidroponik?",
       image: "src/assets/tanaman-layu2.jpg",
       comments: [],
       showComments: false,
     },
     {
       id: 3,
-      username: "Pengguna 3",
+      username: "Dwiki",
       time: "5 jam yang lalu",
       category: "Sayuran",
       title: "Perawatan Tanaman Hidroponik",
-      content: "Postingan lain tentang hidroponik dan perawatan tanaman.",
+      content:
+        "Bagaimana cara mengatasi hama dan penyakit pada tanaman hidroponik?",
       image: "src/assets/tanaman-layu3.jpg",
       comments: [],
       showComments: false,
@@ -67,6 +73,7 @@ const Forum = () => {
     setEditPost(post);
     setIsEditModalOpen(true);
   };
+  
 
   const saveEditedPost = () => {
     setPosts((prevPosts) =>
@@ -88,7 +95,7 @@ const Forum = () => {
     if (!newComment.trim()) return;
     const commentWithUser = {
       username: currentUser.username,
-      avatar: currentUser.avatar,
+      avatar: currentUser .avatar || "src/assets/logo-user.png",
       text: newComment,
     };
     setPosts((prevPosts) =>
@@ -99,6 +106,7 @@ const Forum = () => {
       )
     );
     setNewComment("");
+    setNewCommentImage(null);
   };
 
   const toggleComments = (postId) => {
@@ -121,10 +129,11 @@ const Forum = () => {
   };
 
   const addPost = () => {
+    const currentUser = JSON.parse(localStorage.getItem("user"));
 
     const newPost = {
       id: posts.length + 1,
-      username: "Rayhan",
+      username: currentUser.username,
       time: "Sekarang",
       title: newPostTitle, // Menyimpan judul
       category: newPostCategory, // Menyimpan kategori
@@ -150,199 +159,199 @@ const Forum = () => {
       post.content.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-// import React, { useState, useEffect } from "react";
+  // import React, { useState, useEffect } from "react";
 
-// import Footer from "../components/Footer";
+  // import Footer from "../components/Footer";
 
-// import axios from "axios";
+  // import axios from "axios";
 
-// import { useNavigate } from "react-router-dom";
+  // import { useNavigate } from "react-router-dom";
 
-// const Forum = () => {
-//   const navigate = useNavigate();
+  // const Forum = () => {
+  //   const navigate = useNavigate();
 
-//   const [currentUser, setCurrentUser] = useState(null);
+  //   const [currentUser, setCurrentUser] = useState(null);
 
-//   const [newComment, setNewComment] = useState("");
+  //   const [newComment, setNewComment] = useState("");
 
-//   const [isModalOpen, setIsModalOpen] = useState(false);
+  //   const [isModalOpen, setIsModalOpen] = useState(false);
 
-//   const [newPostCategory, setNewPostCategory] = useState("");
+  //   const [newPostCategory, setNewPostCategory] = useState("");
 
-//   const [selectedImage, setSelectedImage] = useState("");
+  //   const [selectedImage, setSelectedImage] = useState("");
 
-//   const [posts, setPosts] = useState([
-//     {
-//       id: 1,
+  //   const [posts, setPosts] = useState([
+  //     {
+  //       id: 1,
 
-//       username: "Pengguna 1",
+  //       username: "Pengguna 1",
 
-//       time: "2 jam yang lalu",
+  //       time: "2 jam yang lalu",
 
-//       category: "Sayuran",
+  //       category: "Sayuran",
 
-//       title: "Pengalaman Menanam Tanaman Hidroponik",
+  //       title: "Pengalaman Menanam Tanaman Hidroponik",
 
-//       content:
-//         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
+  //       content:
+  //         "Bagaimana tips kalian dalam merawat tanaman hidroponik, khususnya tanaman sawi agar tidak layu ?",
 
-//       image: "src/assets/tanaman-layu.jpg",
+  //       image: "src/assets/tanaman-layu.jpg",
 
-//       comments: [""],
+  //       comments: [""],
 
-//       showComments: false,
-//     },
+  //       showComments: false,
+  //     },
 
-//     // ... postingan lainnya
-//   ]);
+  //     // ... postingan lainnya
+  //   ]);
 
-//   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
+  //   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
 
-//   const [newPostTitle, setNewPostTitle] = useState("");
+  //   const [newPostTitle, setNewPostTitle] = useState("");
 
-//   const [newPostContent, setNewPostContent] = useState("");
+  //   const [newPostContent, setNewPostContent] = useState("");
 
-//   const [newPostImage, setNewPostImage] = useState("");
+  //   const [newPostImage, setNewPostImage] = useState("");
 
-//   const [searchQuery, setSearchQuery] = useState("");
+  //   const [searchQuery, setSearchQuery] = useState("");
 
-//   const [lastPostId, setLastPostId] = useState(null);
+  //   const [lastPostId, setLastPostId] = useState(null);
 
-//   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  //   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-//   const [editPost, setEditPost] = useState({
-//     title: "",
+  //   const [editPost, setEditPost] = useState({
+  //     title: "",
 
-//     content: "",
+  //     content: "",
 
-//     image: "",
-//   });
+  //     image: "",
+  //   });
 
-//   // Fungsi untuk mengecek dan mendapatkan data pengguna
+  //   // Fungsi untuk mengecek dan mendapatkan data pengguna
 
-//   useEffect(() => {
-//     const checkUserLogin = async () => {
-//       const token = localStorage.getItem("token");
+  //   useEffect(() => {
+  //     const checkUserLogin = async () => {
+  //       const token = localStorage.getItem("token");
 
-//       if (!token) {
-//         // Jika tidak ada token, arahkan ke halaman login
+  //       if (!token) {
+  //         // Jika tidak ada token, arahkan ke halaman login
 
-//         navigate("/login");
+  //         navigate("/login");
 
-//         return;
-//       }
+  //         return;
+  //       }
 
-//       try {
-//         // Kirim request untuk mendapatkan data pengguna
+  //       try {
+  //         // Kirim request untuk mendapatkan data pengguna
 
-//         const response = await axios.get("http://localhost:5000/api/user", {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//           },
-//         });
+  //         const response = await axios.get("http://localhost:5000/api/user", {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         });
 
-//         setCurrentUser(response.data);
-//       } catch (error) {
-//         console.error("Gagal mengambil data pengguna", error);
+  //         setCurrentUser(response.data);
+  //       } catch (error) {
+  //         console.error("Gagal mengambil data pengguna", error);
 
-//         localStorage.removeItem("token");
+  //         localStorage.removeItem("token");
 
-//         navigate("/login");
-//       }
-//     };
+  //         navigate("/login");
+  //       }
+  //     };
 
-//     checkUserLogin();
-//   }, [navigate]);
+  //     checkUserLogin();
+  //   }, [navigate]);
 
-//   const addPost = () => {
-//     // Pastikan pengguna sudah login
+  //   const addPost = () => {
+  //     // Pastikan pengguna sudah login
 
-//     if (!currentUser) {
-//       alert("Silakan login terlebih dahulu");
+  //     if (!currentUser) {
+  //       alert("Silakan login terlebih dahulu");
 
-//       return;
-//     }
+  //       return;
+  //     }
 
-//     const newPost = {
-//       id: posts.length + 1,
+  //     const newPost = {
+  //       id: posts.length + 1,
 
-//       username: currentUser.username, // Gunakan username dari data pengguna yang login
+  //       username: currentUser.username, // Gunakan username dari data pengguna yang login
 
-//       time: "Sekarang",
+  //       time: "Sekarang",
 
-//       title: newPostTitle,
+  //       title: newPostTitle,
 
-//       category: newPostCategory,
+  //       category: newPostCategory,
 
-//       content: newPostContent,
+  //       content: newPostContent,
 
-//       image: newPostImage,
+  //       image: newPostImage,
 
-//       comments: [],
+  //       comments: [],
 
-//       showComments: false,
-//     };
+  //       showComments: false,
+  //     };
 
-//     // Kirim post ke backend
+  //     // Kirim post ke backend
 
-//     const sendPostToBackend = async () => {
-//       try {
-//         const response = await axios.post("http://localhost:5000/api/posts", {
-//           ...newPost,
+  //     const sendPostToBackend = async () => {
+  //       try {
+  //         const response = await axios.post("http://localhost:5000/api/posts", {
+  //           ...newPost,
 
-//           userId: currentUser.id, // Sertakan ID pengguna
-//         });
+  //           userId: currentUser.id, // Sertakan ID pengguna
+  //         });
 
-//         // Update state posts dengan response dari backend
+  //         // Update state posts dengan response dari backend
 
-//         setPosts([response.data, ...posts]);
-//       } catch (error) {
-//         console.error("Gagal mengirim post", error);
-//       }
-//     };
+  //         setPosts([response.data, ...posts]);
+  //       } catch (error) {
+  //         console.error("Gagal mengirim post", error);
+  //       }
+  //     };
 
-//     sendPostToBackend();
+  //     sendPostToBackend();
 
-//     // Reset state
+  //     // Reset state
 
-//     setLastPostId(newPost.id);
+  //     setLastPostId(newPost.id);
 
-//     setNewPostTitle("");
+  //     setNewPostTitle("");
 
-//     setNewPostCategory("");
+  //     setNewPostCategory("");
 
-//     setNewPostContent("");
+  //     setNewPostContent("");
 
-//     setNewPostImage("");
+  //     setNewPostImage("");
 
-//     setIsCreatePostOpen(false);
-//   };
+  //     setIsCreatePostOpen(false);
+  //   };
 
-//   // Render tombol buat postingan hanya jika sudah login
+  //   // Render tombol buat postingan hanya jika sudah login
 
-//   const renderCreatePostButton = () => {
-//     if (currentUser) {
-//       return (
-//         <div className="fixed bottom-6 right-6 z-50">
-//           <button
-//             onClick={() => setIsCreatePostOpen(true)}
-//             className="bg-[#075852] hover:bg-[#26BE71] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl"
-//             aria-label="Buat Postingan Baru"
-//           >
-//             +
-//           </button>
-//         </div>
-//       );
-//     }
+  //   const renderCreatePostButton = () => {
+  //     if (currentUser) {
+  //       return (
+  //         <div className="fixed bottom-6 right-6 z-50">
+  //           <button
+  //             onClick={() => setIsCreatePostOpen(true)}
+  //             className="bg-[#075852] hover:bg-[#26BE71] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl"
+  //             aria-label="Buat Postingan Baru"
+  //           >
+  //             +
+  //           </button>
+  //         </div>
+  //       );
+  //     }
 
-//     return null;
-//   };
+  //     return null;
+  //   };
 
-//   // Jika belum login, tampilkan loading atau redirect
+  //   // Jika belum login, tampilkan loading atau redirect
 
-//   if (!currentUser) {
-//     return <div>Loading...</div>;
-//   }
+  //   if (!currentUser) {
+  //     return <div>Loading...</div>;
+  //   }
 
   return (
     <div>
@@ -462,8 +471,8 @@ const Forum = () => {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src="src/assets/pria.png"
-                  alt="Avatar Pengguna"
+                  src="src/assets/logo-user.png"
+                  alt=""
                   className="w-12 h-12 rounded-full mr-4"
                 />
                 <div>
@@ -624,6 +633,7 @@ const Forum = () => {
 
                     {post.comments.length > 0 ? (
                       post.comments.map((comment, index) => (
+                        
                         <div key={index} className="flex items-start mb-2">
                           <img
                             src={comment.avatar}
@@ -633,7 +643,7 @@ const Forum = () => {
 
                           <div>
                             <span className="font-semibold">
-                              {comment.username}
+                            {comment.username}
                             </span>
 
                             <p className="text-gray-600">{comment.text}</p>

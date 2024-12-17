@@ -29,20 +29,26 @@ const RegisterForm = ({ setIsRegistered, setRegisteredUser }) => {
       !registerData.email ||
       !registerData.password
     ) {
-      setError("Semua field harus diisi.");
+      setError("Semua kolom harus diisi.");
       return;
     }
 
-    console.log("User  registered:", registerData);
+    console.log("Pengguna terdaftar:", registerData);
     setRegisterSuccess(true);
     setIsRegistered(true);
     setRegisteredUser(registerData); // Simpan data pengguna yang terdaftar
+
+    // Simpan data pengguna di localStorage
+  localStorage.setItem('user', JSON.stringify(registerData));
+  
 
     // Arahkan ke halaman login setelah pendaftaran berhasil
     setTimeout(() => {
       navigate("/login");
     }, 2000);
   };
+
+  
 
   return (
     <section className="bg-[#D5F0DB] min-h-screen flex items-center justify-center p-6 sm:p-12 lg:p-24 text-white">
