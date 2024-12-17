@@ -8,14 +8,14 @@ const User = ({ registeredUser }) => {
   const [userData, setUserData] = useState({
     username: "",
     email: "",
-    profilePicture: ""
+    profilePicture: "",
   });
 
   // State untuk form ganti password
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   // Efek untuk memuat data pengguna
@@ -24,7 +24,8 @@ const User = ({ registeredUser }) => {
       setUserData({
         username: registeredUser.username,
         email: registeredUser.email,
-        profilePicture: registeredUser.profilePicture || "src/assets/logo-user.png"
+        profilePicture:
+          registeredUser.profilePicture || "src/assets/logo-user.png",
       });
     }
   }, [registeredUser]);
@@ -39,7 +40,7 @@ const User = ({ registeredUser }) => {
     const file = event.target.files[0];
     if (file) {
       // Validasi tipe dan ukuran file
-      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+      const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
       if (!allowedTypes.includes(file.type)) {
         alert("Hanya file gambar (JPEG, PNG, GIF) yang diperbolehkan.");
         return;
@@ -52,20 +53,24 @@ const User = ({ registeredUser }) => {
 
       // Membuat FormData untuk unggah
       const formData = new FormData();
-      formData.append('profilePicture', file);
+      formData.append("profilePicture", file);
 
       try {
         // Kirim ke backend untuk unggah
-        const response = await axios.post('/api/upload-profile-picture', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
+        const response = await axios.post(
+          "/api/upload-profile-picture",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
           }
-        });
+        );
 
         // Update state dengan URL foto baru
-        setUserData(prev => ({
+        setUserData((prev) => ({
           ...prev,
-          profilePicture: response.data.imageUrl
+          profilePicture: response.data.imageUrl,
         }));
 
         // Tampilkan pratinjau
@@ -84,9 +89,9 @@ const User = ({ registeredUser }) => {
   // Handler untuk perubahan input profil
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
-    setUserData(prev => ({
+    setUserData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -94,7 +99,7 @@ const User = ({ registeredUser }) => {
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('/api/update-profile', userData);
+      const response = await axios.put("/api/update-profile", userData);
       alert("Profil berhasil diperbarui!");
     } catch (error) {
       console.error("Gagal memperbarui profil:", error);
@@ -105,16 +110,16 @@ const User = ({ registeredUser }) => {
   // Handler untuk perubahan password
   const handlePasswordChange = (e) => {
     const { name, value } = e.target;
-    setPasswordData(prev => ({
+    setPasswordData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   // Handler untuk submit ganti password
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validasi password
     if (passwordData.newPassword !== passwordData.confirmPassword) {
       alert("Konfirmasi password tidak cocok!");
@@ -122,17 +127,17 @@ const User = ({ registeredUser }) => {
     }
 
     try {
-      const response = await axios.post('/api/change-password', {
+      const response = await axios.post("/api/change-password", {
         currentPassword: passwordData.currentPassword,
-        newPassword: passwordData.newPassword
+        newPassword: passwordData.newPassword,
       });
-      
+
       alert("Password berhasil diubah!");
       // Reset form
       setPasswordData({
         currentPassword: "",
         newPassword: "",
-        confirmPassword: ""
+        confirmPassword: "",
       });
     } catch (error) {
       console.error("Gagal mengubah password:", error);
@@ -143,7 +148,7 @@ const User = ({ registeredUser }) => {
   // Handler logout
   const handleLogout = () => {
     // Lakukan proses logout di sini
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     window.location.href = "/login";
   };
 
@@ -151,7 +156,7 @@ const User = ({ registeredUser }) => {
     <section className="p-4 md:p-8 bg-gray-100 min-h-screen">
       <div className="container mx-auto">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-          Dashboard Pengguna
+          Halaman Pengguna
         </h1>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8">
@@ -164,20 +169,20 @@ const User = ({ registeredUser }) => {
                   alt="Foto Pengguna"
                   className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                 />
-                <label 
+                <label
                   htmlFor="profileImageUpload"
                   className="absolute bottom-0 right-0 bg-[#26BE71] text-white p-2 rounded-full cursor-pointer hover:bg-[#075852] transition"
                 >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-5 w-5" 
-                    viewBox="0 0 20 20" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
                     fill="currentColor"
                   >
-                    <path 
-                      fillRule="evenodd" 
-                      d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 0011.586 3H8.414a1 1 0 00-.707.293L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" 
-                      clipRule="evenodd" 
+                    <path
+                      fillRule="evenodd"
+                      d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 0011.586 3H8.414a1 1 0 00-.707.293L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </label>
@@ -220,7 +225,7 @@ const User = ({ registeredUser }) => {
                 onClick={handleLogout}
                 className="w-full bg-red-500 text-white px-8 py-2 rounded-lg shadow hover:bg-red-600 transition duration-300"
               >
-                Logout
+                Keluar
               </button>
             </div>
           </div>
@@ -329,7 +334,7 @@ const User = ({ registeredUser }) => {
                       name="confirmPassword"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="Konfirmasi Kata Sandi Baru"
-                      value={passwordData.confirmPassword }
+                      value={passwordData.confirmPassword}
                       onChange={handlePasswordChange}
                     />
                   </div>
